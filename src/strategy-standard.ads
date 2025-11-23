@@ -1,8 +1,23 @@
 with Interfaces; use Interfaces;
 
+with Strategy.Arrays;
+with Strategy.Enums;
+with Strategy.Integers;
 with Strategy.Modular;
 
 package Strategy.Standard is
+
+   package Integer_Value_Tree
+   is new Definite_Value_Tree (Integer);
+
+   package Integer_Strat
+   is new Integers.Signed_Integer_Strat (Integer, Integer_Value_Tree);
+
+   package Character_Value_Tree
+   is new Definite_Value_Tree (Character);
+
+   package Character_Strat
+   is new Enums.Enum_Strat (Character, Character_Value_Tree);
 
    package Unsigned_8_Value_Tree
    is new Definite_Value_Tree (Unsigned_8);
@@ -30,6 +45,11 @@ package Strategy.Standard is
 
    package String_Value_Tree
    is new Indefinite_Value_Tree (String);
+
+   package String_Strat
+   is new Arrays.Indefinite_Array_Strat (Character, Positive, String,
+                                         String_Value_Tree,
+                                         Character_Strat.Strat);
 
    package Boolean_Value_Tree
    is new Definite_Value_Tree (Boolean);
