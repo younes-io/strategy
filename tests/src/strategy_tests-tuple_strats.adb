@@ -51,7 +51,7 @@ begin
          Assert (Org.C in 100 .. 200);
 
          --  Check that only one value is simplified at once
-         if VT.Simplify then
+         if Simplify (Strategy.Node'Class (VT)) then
             declare
                Change_Counter : Natural := 0;
                Changed : Strat_Id;
@@ -77,7 +77,7 @@ begin
 
                Assert (Change_Counter = 1, "More than one value simplified");
 
-               if VT.Complicate then
+               if Complicate (Strategy.Node'Class (VT)) then
                   case Changed is
                   when A => Assert (VT.Current.A = A_Range'Succ (New_A));
                   when B => Assert (VT.Current.B = B_Range'Succ (New_B));
@@ -98,7 +98,7 @@ begin
          VT : T3.Impl.Node := T3.Impl.Create (Ctx);
       begin
          --  Check that we can simplify all values
-         while VT.Simplify loop
+         while Simplify (Strategy.Node'Class (VT)) loop
             null;
          end loop;
          Assert (VT.Current.A = A_Range'First);

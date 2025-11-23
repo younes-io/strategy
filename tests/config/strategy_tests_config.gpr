@@ -1,0 +1,10 @@
+project Strategy_Tests_Config is
+
+   Build_Profile := External ("BUILD_PROFILE", "dev");
+
+   Ada_Compiler_Switches :=
+     ("-gnat2022",
+      "-O1",
+      "-gnatwa");
+
+end Strategy_Tests_Config;

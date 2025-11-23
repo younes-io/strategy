@@ -13,11 +13,11 @@ package body Strategy.One_Of is
             when A =>
                return (Parent with
                        Pick => A,
-                       A => A_Holders.To_Holder (A_Strat.Create (Ctx)));
+                       A => A_Holders.To_Holder (A_Strat.Create_Node (Ctx)));
             when B =>
                return (Parent with
                        Pick => B,
-                       B => B_Holders.To_Holder (B_Strat.Create (Ctx)));
+                       B => B_Holders.To_Holder (B_Strat.Create_Node (Ctx)));
             end case;
          end Create;
          overriding
@@ -56,15 +56,15 @@ package body Strategy.One_Of is
             when A =>
                return (Parent with
                        Pick => A,
-                       A => A_Holders.To_Holder (A_Strat.Create (Ctx)));
+                       A => A_Holders.To_Holder (A_Strat.Create_Node (Ctx)));
             when B =>
                return (Parent with
                        Pick => B,
-                       B => B_Holders.To_Holder (B_Strat.Create (Ctx)));
+                       B => B_Holders.To_Holder (B_Strat.Create_Node (Ctx)));
             when C =>
                return (Parent with
                        Pick => C,
-                       C => C_Holders.To_Holder (C_Strat.Create (Ctx)));
+                       C => C_Holders.To_Holder (C_Strat.Create_Node (Ctx)));
             end case;
          end Create;
          overriding
@@ -106,19 +106,19 @@ package body Strategy.One_Of is
             when A =>
                return (Parent with
                        Pick => A,
-                       A => A_Holders.To_Holder (A_Strat.Create (Ctx)));
+                       A => A_Holders.To_Holder (A_Strat.Create_Node (Ctx)));
             when B =>
                return (Parent with
                        Pick => B,
-                       B => B_Holders.To_Holder (B_Strat.Create (Ctx)));
+                       B => B_Holders.To_Holder (B_Strat.Create_Node (Ctx)));
             when C =>
                return (Parent with
                        Pick => C,
-                       C => C_Holders.To_Holder (C_Strat.Create (Ctx)));
+                       C => C_Holders.To_Holder (C_Strat.Create_Node (Ctx)));
             when D =>
                return (Parent with
                        Pick => D,
-                       D => D_Holders.To_Holder (D_Strat.Create (Ctx)));
+                       D => D_Holders.To_Holder (D_Strat.Create_Node (Ctx)));
             end case;
          end Create;
          overriding
@@ -163,23 +163,23 @@ package body Strategy.One_Of is
             when A =>
                return (Parent with
                        Pick => A,
-                       A => A_Holders.To_Holder (A_Strat.Create (Ctx)));
+                       A => A_Holders.To_Holder (A_Strat.Create_Node (Ctx)));
             when B =>
                return (Parent with
                        Pick => B,
-                       B => B_Holders.To_Holder (B_Strat.Create (Ctx)));
+                       B => B_Holders.To_Holder (B_Strat.Create_Node (Ctx)));
             when C =>
                return (Parent with
                        Pick => C,
-                       C => C_Holders.To_Holder (C_Strat.Create (Ctx)));
+                       C => C_Holders.To_Holder (C_Strat.Create_Node (Ctx)));
             when D =>
                return (Parent with
                        Pick => D,
-                       D => D_Holders.To_Holder (D_Strat.Create (Ctx)));
+                       D => D_Holders.To_Holder (D_Strat.Create_Node (Ctx)));
             when E =>
                return (Parent with
                        Pick => E,
-                       E => E_Holders.To_Holder (E_Strat.Create (Ctx)));
+                       E => E_Holders.To_Holder (E_Strat.Create_Node (Ctx)));
             end case;
          end Create;
          overriding
@@ -227,27 +227,27 @@ package body Strategy.One_Of is
             when A =>
                return (Parent with
                        Pick => A,
-                       A => A_Holders.To_Holder (A_Strat.Create (Ctx)));
+                       A => A_Holders.To_Holder (A_Strat.Create_Node (Ctx)));
             when B =>
                return (Parent with
                        Pick => B,
-                       B => B_Holders.To_Holder (B_Strat.Create (Ctx)));
+                       B => B_Holders.To_Holder (B_Strat.Create_Node (Ctx)));
             when C =>
                return (Parent with
                        Pick => C,
-                       C => C_Holders.To_Holder (C_Strat.Create (Ctx)));
+                       C => C_Holders.To_Holder (C_Strat.Create_Node (Ctx)));
             when D =>
                return (Parent with
                        Pick => D,
-                       D => D_Holders.To_Holder (D_Strat.Create (Ctx)));
+                       D => D_Holders.To_Holder (D_Strat.Create_Node (Ctx)));
             when E =>
                return (Parent with
                        Pick => E,
-                       E => E_Holders.To_Holder (E_Strat.Create (Ctx)));
+                       E => E_Holders.To_Holder (E_Strat.Create_Node (Ctx)));
             when F =>
                return (Parent with
                        Pick => F,
-                       F => F_Holders.To_Holder (F_Strat.Create (Ctx)));
+                       F => F_Holders.To_Holder (F_Strat.Create_Node (Ctx)));
             end case;
          end Create;
          overriding
@@ -298,31 +298,31 @@ package body Strategy.One_Of is
             when A =>
                return (Parent with
                        Pick => A,
-                       A => A_Holders.To_Holder (A_Strat.Create (Ctx)));
+                       A => A_Holders.To_Holder (A_Strat.Create_Node (Ctx)));
             when B =>
                return (Parent with
                        Pick => B,
-                       B => B_Holders.To_Holder (B_Strat.Create (Ctx)));
+                       B => B_Holders.To_Holder (B_Strat.Create_Node (Ctx)));
             when C =>
                return (Parent with
                        Pick => C,
-                       C => C_Holders.To_Holder (C_Strat.Create (Ctx)));
+                       C => C_Holders.To_Holder (C_Strat.Create_Node (Ctx)));
             when D =>
                return (Parent with
                        Pick => D,
-                       D => D_Holders.To_Holder (D_Strat.Create (Ctx)));
+                       D => D_Holders.To_Holder (D_Strat.Create_Node (Ctx)));
             when E =>
                return (Parent with
                        Pick => E,
-                       E => E_Holders.To_Holder (E_Strat.Create (Ctx)));
+                       E => E_Holders.To_Holder (E_Strat.Create_Node (Ctx)));
             when F =>
                return (Parent with
                        Pick => F,
-                       F => F_Holders.To_Holder (F_Strat.Create (Ctx)));
+                       F => F_Holders.To_Holder (F_Strat.Create_Node (Ctx)));
             when G =>
                return (Parent with
                        Pick => G,
-                       G => G_Holders.To_Holder (G_Strat.Create (Ctx)));
+                       G => G_Holders.To_Holder (G_Strat.Create_Node (Ctx)));
             end case;
          end Create;
          overriding
@@ -376,35 +376,35 @@ package body Strategy.One_Of is
             when A =>
                return (Parent with
                        Pick => A,
-                       A => A_Holders.To_Holder (A_Strat.Create (Ctx)));
+                       A => A_Holders.To_Holder (A_Strat.Create_Node (Ctx)));
             when B =>
                return (Parent with
                        Pick => B,
-                       B => B_Holders.To_Holder (B_Strat.Create (Ctx)));
+                       B => B_Holders.To_Holder (B_Strat.Create_Node (Ctx)));
             when C =>
                return (Parent with
                        Pick => C,
-                       C => C_Holders.To_Holder (C_Strat.Create (Ctx)));
+                       C => C_Holders.To_Holder (C_Strat.Create_Node (Ctx)));
             when D =>
                return (Parent with
                        Pick => D,
-                       D => D_Holders.To_Holder (D_Strat.Create (Ctx)));
+                       D => D_Holders.To_Holder (D_Strat.Create_Node (Ctx)));
             when E =>
                return (Parent with
                        Pick => E,
-                       E => E_Holders.To_Holder (E_Strat.Create (Ctx)));
+                       E => E_Holders.To_Holder (E_Strat.Create_Node (Ctx)));
             when F =>
                return (Parent with
                        Pick => F,
-                       F => F_Holders.To_Holder (F_Strat.Create (Ctx)));
+                       F => F_Holders.To_Holder (F_Strat.Create_Node (Ctx)));
             when G =>
                return (Parent with
                        Pick => G,
-                       G => G_Holders.To_Holder (G_Strat.Create (Ctx)));
+                       G => G_Holders.To_Holder (G_Strat.Create_Node (Ctx)));
             when H =>
                return (Parent with
                        Pick => H,
-                       H => H_Holders.To_Holder (H_Strat.Create (Ctx)));
+                       H => H_Holders.To_Holder (H_Strat.Create_Node (Ctx)));
             end case;
          end Create;
          overriding
@@ -461,39 +461,39 @@ package body Strategy.One_Of is
             when A =>
                return (Parent with
                        Pick => A,
-                       A => A_Holders.To_Holder (A_Strat.Create (Ctx)));
+                       A => A_Holders.To_Holder (A_Strat.Create_Node (Ctx)));
             when B =>
                return (Parent with
                        Pick => B,
-                       B => B_Holders.To_Holder (B_Strat.Create (Ctx)));
+                       B => B_Holders.To_Holder (B_Strat.Create_Node (Ctx)));
             when C =>
                return (Parent with
                        Pick => C,
-                       C => C_Holders.To_Holder (C_Strat.Create (Ctx)));
+                       C => C_Holders.To_Holder (C_Strat.Create_Node (Ctx)));
             when D =>
                return (Parent with
                        Pick => D,
-                       D => D_Holders.To_Holder (D_Strat.Create (Ctx)));
+                       D => D_Holders.To_Holder (D_Strat.Create_Node (Ctx)));
             when E =>
                return (Parent with
                        Pick => E,
-                       E => E_Holders.To_Holder (E_Strat.Create (Ctx)));
+                       E => E_Holders.To_Holder (E_Strat.Create_Node (Ctx)));
             when F =>
                return (Parent with
                        Pick => F,
-                       F => F_Holders.To_Holder (F_Strat.Create (Ctx)));
+                       F => F_Holders.To_Holder (F_Strat.Create_Node (Ctx)));
             when G =>
                return (Parent with
                        Pick => G,
-                       G => G_Holders.To_Holder (G_Strat.Create (Ctx)));
+                       G => G_Holders.To_Holder (G_Strat.Create_Node (Ctx)));
             when H =>
                return (Parent with
                        Pick => H,
-                       H => H_Holders.To_Holder (H_Strat.Create (Ctx)));
+                       H => H_Holders.To_Holder (H_Strat.Create_Node (Ctx)));
             when I =>
                return (Parent with
                        Pick => I,
-                       I => I_Holders.To_Holder (I_Strat.Create (Ctx)));
+                       I => I_Holders.To_Holder (I_Strat.Create_Node (Ctx)));
             end case;
          end Create;
          overriding
@@ -553,43 +553,43 @@ package body Strategy.One_Of is
             when A =>
                return (Parent with
                        Pick => A,
-                       A => A_Holders.To_Holder (A_Strat.Create (Ctx)));
+                       A => A_Holders.To_Holder (A_Strat.Create_Node (Ctx)));
             when B =>
                return (Parent with
                        Pick => B,
-                       B => B_Holders.To_Holder (B_Strat.Create (Ctx)));
+                       B => B_Holders.To_Holder (B_Strat.Create_Node (Ctx)));
             when C =>
                return (Parent with
                        Pick => C,
-                       C => C_Holders.To_Holder (C_Strat.Create (Ctx)));
+                       C => C_Holders.To_Holder (C_Strat.Create_Node (Ctx)));
             when D =>
                return (Parent with
                        Pick => D,
-                       D => D_Holders.To_Holder (D_Strat.Create (Ctx)));
+                       D => D_Holders.To_Holder (D_Strat.Create_Node (Ctx)));
             when E =>
                return (Parent with
                        Pick => E,
-                       E => E_Holders.To_Holder (E_Strat.Create (Ctx)));
+                       E => E_Holders.To_Holder (E_Strat.Create_Node (Ctx)));
             when F =>
                return (Parent with
                        Pick => F,
-                       F => F_Holders.To_Holder (F_Strat.Create (Ctx)));
+                       F => F_Holders.To_Holder (F_Strat.Create_Node (Ctx)));
             when G =>
                return (Parent with
                        Pick => G,
-                       G => G_Holders.To_Holder (G_Strat.Create (Ctx)));
+                       G => G_Holders.To_Holder (G_Strat.Create_Node (Ctx)));
             when H =>
                return (Parent with
                        Pick => H,
-                       H => H_Holders.To_Holder (H_Strat.Create (Ctx)));
+                       H => H_Holders.To_Holder (H_Strat.Create_Node (Ctx)));
             when I =>
                return (Parent with
                        Pick => I,
-                       I => I_Holders.To_Holder (I_Strat.Create (Ctx)));
+                       I => I_Holders.To_Holder (I_Strat.Create_Node (Ctx)));
             when J =>
                return (Parent with
                        Pick => J,
-                       J => J_Holders.To_Holder (J_Strat.Create (Ctx)));
+                       J => J_Holders.To_Holder (J_Strat.Create_Node (Ctx)));
             end case;
          end Create;
          overriding

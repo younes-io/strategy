@@ -82,6 +82,15 @@ package Strategy is
       --  Value type that implements the strategy.
       --
       --  Create: a function to instantiate a value tree node
+
+      --  Re-export the node type so downstream generics (e.g. One_Of) can name it.
+      subtype Node_Type is Node;
+
+      --  Re-export the constructor so downstream generics can build nodes without
+      --  knowing the implementation package layout.
+      function Create_Node
+        (Ctx : in out Runner_Context'Class) return Node
+      renames Create;
    end Definite_Strategy;
 
    generic
@@ -106,6 +115,9 @@ package Strategy is
       --  Value type that implements the strategy.
       --
       --  Create: a function to instantiate a value tree node
+
+      --  Re-export the node type so downstream generics (e.g. One_Of) can name it.
+      subtype Node_Type is Node;
    end Indefinite_Strategy;
 
 end Strategy;

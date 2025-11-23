@@ -1,5 +1,6 @@
 with Ada.Containers.Indefinite_Holders;
 pragma Style_Checks (Off);
+with System;
 package Strategy.One_Of is
    generic
       type Value is limited private;
@@ -11,10 +12,13 @@ package Strategy.One_Of is
          type Node (<>) is new Value_Tree.Value_Node with private;
          function Create (Ctx : in out Runner_Context'Class) return Node;
       private
+         function Equal_A (Left, Right : A_Strat.Node_Type) return Boolean is (System."=" (Left'Address, Right'Address));
+         function Equal_B (Left, Right : B_Strat.Node_Type) return Boolean is (System."=" (Left'Address, Right'Address));
+
          package A_Holders
-         is new Ada.Containers.Indefinite_Holders (A_Strat.Node, A_Strat."=");
+         is new Ada.Containers.Indefinite_Holders (A_Strat.Node_Type, Equal_A);
          package B_Holders
-         is new Ada.Containers.Indefinite_Holders (B_Strat.Node, B_Strat."=");
+         is new Ada.Containers.Indefinite_Holders (B_Strat.Node_Type, Equal_B);
          type Options is (A, B);
          subtype Parent is Value_Tree.Value_Node;
          type Node (Pick : Options) is new Parent with record
@@ -44,12 +48,16 @@ package Strategy.One_Of is
          type Node (<>) is new Value_Tree.Value_Node with private;
          function Create (Ctx : in out Runner_Context'Class) return Node;
       private
+         function Equal_A (Left, Right : A_Strat.Node_Type) return Boolean is (System."=" (Left'Address, Right'Address));
+         function Equal_B (Left, Right : B_Strat.Node_Type) return Boolean is (System."=" (Left'Address, Right'Address));
+         function Equal_C (Left, Right : C_Strat.Node_Type) return Boolean is (System."=" (Left'Address, Right'Address));
+
          package A_Holders
-         is new Ada.Containers.Indefinite_Holders (A_Strat.Node, A_Strat."=");
+         is new Ada.Containers.Indefinite_Holders (A_Strat.Node_Type, Equal_A);
          package B_Holders
-         is new Ada.Containers.Indefinite_Holders (B_Strat.Node, B_Strat."=");
+         is new Ada.Containers.Indefinite_Holders (B_Strat.Node_Type, Equal_B);
          package C_Holders
-         is new Ada.Containers.Indefinite_Holders (C_Strat.Node, C_Strat."=");
+         is new Ada.Containers.Indefinite_Holders (C_Strat.Node_Type, Equal_C);
          type Options is (A, B, C);
          subtype Parent is Value_Tree.Value_Node;
          type Node (Pick : Options) is new Parent with record
@@ -81,14 +89,19 @@ package Strategy.One_Of is
          type Node (<>) is new Value_Tree.Value_Node with private;
          function Create (Ctx : in out Runner_Context'Class) return Node;
       private
+         function Equal_A (Left, Right : A_Strat.Node_Type) return Boolean is (System."=" (Left'Address, Right'Address));
+         function Equal_B (Left, Right : B_Strat.Node_Type) return Boolean is (System."=" (Left'Address, Right'Address));
+         function Equal_C (Left, Right : C_Strat.Node_Type) return Boolean is (System."=" (Left'Address, Right'Address));
+         function Equal_D (Left, Right : D_Strat.Node_Type) return Boolean is (System."=" (Left'Address, Right'Address));
+
          package A_Holders
-         is new Ada.Containers.Indefinite_Holders (A_Strat.Node, A_Strat."=");
+         is new Ada.Containers.Indefinite_Holders (A_Strat.Node_Type, Equal_A);
          package B_Holders
-         is new Ada.Containers.Indefinite_Holders (B_Strat.Node, B_Strat."=");
+         is new Ada.Containers.Indefinite_Holders (B_Strat.Node_Type, Equal_B);
          package C_Holders
-         is new Ada.Containers.Indefinite_Holders (C_Strat.Node, C_Strat."=");
+         is new Ada.Containers.Indefinite_Holders (C_Strat.Node_Type, Equal_C);
          package D_Holders
-         is new Ada.Containers.Indefinite_Holders (D_Strat.Node, D_Strat."=");
+         is new Ada.Containers.Indefinite_Holders (D_Strat.Node_Type, Equal_D);
          type Options is (A, B, C, D);
          subtype Parent is Value_Tree.Value_Node;
          type Node (Pick : Options) is new Parent with record
@@ -122,16 +135,22 @@ package Strategy.One_Of is
          type Node (<>) is new Value_Tree.Value_Node with private;
          function Create (Ctx : in out Runner_Context'Class) return Node;
       private
+         function Equal_A (Left, Right : A_Strat.Node_Type) return Boolean is (System."=" (Left'Address, Right'Address));
+         function Equal_B (Left, Right : B_Strat.Node_Type) return Boolean is (System."=" (Left'Address, Right'Address));
+         function Equal_C (Left, Right : C_Strat.Node_Type) return Boolean is (System."=" (Left'Address, Right'Address));
+         function Equal_D (Left, Right : D_Strat.Node_Type) return Boolean is (System."=" (Left'Address, Right'Address));
+         function Equal_E (Left, Right : E_Strat.Node_Type) return Boolean is (System."=" (Left'Address, Right'Address));
+
          package A_Holders
-         is new Ada.Containers.Indefinite_Holders (A_Strat.Node, A_Strat."=");
+         is new Ada.Containers.Indefinite_Holders (A_Strat.Node_Type, Equal_A);
          package B_Holders
-         is new Ada.Containers.Indefinite_Holders (B_Strat.Node, B_Strat."=");
+         is new Ada.Containers.Indefinite_Holders (B_Strat.Node_Type, Equal_B);
          package C_Holders
-         is new Ada.Containers.Indefinite_Holders (C_Strat.Node, C_Strat."=");
+         is new Ada.Containers.Indefinite_Holders (C_Strat.Node_Type, Equal_C);
          package D_Holders
-         is new Ada.Containers.Indefinite_Holders (D_Strat.Node, D_Strat."=");
+         is new Ada.Containers.Indefinite_Holders (D_Strat.Node_Type, Equal_D);
          package E_Holders
-         is new Ada.Containers.Indefinite_Holders (E_Strat.Node, E_Strat."=");
+         is new Ada.Containers.Indefinite_Holders (E_Strat.Node_Type, Equal_E);
          type Options is (A, B, C, D, E);
          subtype Parent is Value_Tree.Value_Node;
          type Node (Pick : Options) is new Parent with record
@@ -167,18 +186,25 @@ package Strategy.One_Of is
          type Node (<>) is new Value_Tree.Value_Node with private;
          function Create (Ctx : in out Runner_Context'Class) return Node;
       private
+         function Equal_A (Left, Right : A_Strat.Node_Type) return Boolean is (System."=" (Left'Address, Right'Address));
+         function Equal_B (Left, Right : B_Strat.Node_Type) return Boolean is (System."=" (Left'Address, Right'Address));
+         function Equal_C (Left, Right : C_Strat.Node_Type) return Boolean is (System."=" (Left'Address, Right'Address));
+         function Equal_D (Left, Right : D_Strat.Node_Type) return Boolean is (System."=" (Left'Address, Right'Address));
+         function Equal_E (Left, Right : E_Strat.Node_Type) return Boolean is (System."=" (Left'Address, Right'Address));
+         function Equal_F (Left, Right : F_Strat.Node_Type) return Boolean is (System."=" (Left'Address, Right'Address));
+
          package A_Holders
-         is new Ada.Containers.Indefinite_Holders (A_Strat.Node, A_Strat."=");
+         is new Ada.Containers.Indefinite_Holders (A_Strat.Node_Type, Equal_A);
          package B_Holders
-         is new Ada.Containers.Indefinite_Holders (B_Strat.Node, B_Strat."=");
+         is new Ada.Containers.Indefinite_Holders (B_Strat.Node_Type, Equal_B);
          package C_Holders
-         is new Ada.Containers.Indefinite_Holders (C_Strat.Node, C_Strat."=");
+         is new Ada.Containers.Indefinite_Holders (C_Strat.Node_Type, Equal_C);
          package D_Holders
-         is new Ada.Containers.Indefinite_Holders (D_Strat.Node, D_Strat."=");
+         is new Ada.Containers.Indefinite_Holders (D_Strat.Node_Type, Equal_D);
          package E_Holders
-         is new Ada.Containers.Indefinite_Holders (E_Strat.Node, E_Strat."=");
+         is new Ada.Containers.Indefinite_Holders (E_Strat.Node_Type, Equal_E);
          package F_Holders
-         is new Ada.Containers.Indefinite_Holders (F_Strat.Node, F_Strat."=");
+         is new Ada.Containers.Indefinite_Holders (F_Strat.Node_Type, Equal_F);
          type Options is (A, B, C, D, E, F);
          subtype Parent is Value_Tree.Value_Node;
          type Node (Pick : Options) is new Parent with record

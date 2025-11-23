@@ -36,7 +36,7 @@ procedure Strategy_Tests.Modular_Strats is
          Assert (N.Current in Strat.First .. Strat.Last);
 
          --  Check simplify towards lowest
-         while N.Simplify loop
+         while Simplify (Strategy.Node'Class (N)) loop
             null;
          end loop;
          Assert (N.Current = Strat.First,
@@ -53,10 +53,10 @@ procedure Strategy_Tests.Modular_Strats is
          --  Check random value is within range
          Assert (Orig in Strat.First .. Strat.Last);
 
-         Unused := N.Simplify;
+         Unused := Simplify (Strategy.Node'Class (N));
 
          --  Check complicate up to original value
-         while N.Complicate loop
+         while Complicate (Strategy.Node'Class (N)) loop
             null;
          end loop;
          Assert (N.Current = Orig,
