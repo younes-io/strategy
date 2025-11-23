@@ -19,4 +19,4 @@ command = ["gprbuild", "-p", "-P", "tests/strategy_tests.gpr"]
 
 [[actions]]
 type = "test"
-command = ["sh", "-c", "for f in $(find tests/bin -maxdepth 1 -type f -perm -111 -name 'strategy_tests-*'); do \"$f\"; done"]
+command = ["sh", "-c", "if [ -d tests/bin ]; then for f in $(find tests/bin -maxdepth 1 -type f -perm -111 -name 'strategy_tests-*'); do \"$f\"; done; else echo 'No test binaries found'; fi"]
