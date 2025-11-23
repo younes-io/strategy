@@ -5,6 +5,15 @@ package body Strategy.Integers is
    package body Signed_Integer_Strat is
       package body Impl is
 
+         --  Compute midpoint of [Min, Max] using a wider intermediate type to avoid overflow.
+         function Safe_Midpoint (Min, Max : Value) return Value is
+            Min_LL : constant Long_Long_Integer := Long_Long_Integer (Min);
+            Max_LL : constant Long_Long_Integer := Long_Long_Integer (Max);
+            Mid_LL : constant Long_Long_Integer := Min_LL + (Max_LL - Min_LL) / 2;
+         begin
+            return Value (Mid_LL);
+         end Safe_Midpoint;
+
          ------------
          -- Create --
          ------------
@@ -53,7 +62,7 @@ package body Strategy.Integers is
                end if;
 
                -- Pick midpoint
-               This.Current := This.Min + (This.Max - This.Min) / 2;
+               This.Current := Safe_Midpoint (This.Min, This.Max);
 
                -- If we picked same value, we are done
                if This.Current = This.Max then
@@ -71,7 +80,7 @@ package body Strategy.Integers is
                end if;
 
                -- Pick midpoint.
-               This.Current := This.Min + (This.Max - This.Min) / 2;
+               This.Current := Safe_Midpoint (This.Min, This.Max);
 
                if This.Current = This.Min then
                    return False;
@@ -95,7 +104,12 @@ package body Strategy.Integers is
                -- We were searching in [Min, Max].
                -- Current Passed. So the failure must be > Current.
                -- So Min becomes Current + 1.
-               This.Min := This.Current + 1;
+               if This.Current = Value'Last then
+                  --  Saturate at the bound to avoid overflow.
+                  This.Min := This.Current;
+               else
+                  This.Min := This.Current + 1;
+               end if;
 
                if This.Min > This.Max then
                    -- Reset to Max (the last known failure)
@@ -103,7 +117,7 @@ package body Strategy.Integers is
                    return False;
                end if;
 
-               This.Current := This.Min + (This.Max - This.Min) / 2;
+               This.Current := Safe_Midpoint (This.Min, This.Max);
                return True;
 
             else
@@ -113,14 +127,18 @@ package body Strategy.Integers is
                -- So failure must be < Current.
                -- So Max becomes Current - 1.
 
-               This.Max := This.Current - 1;
+               if This.Current = Value'First then
+                  This.Max := This.Current;
+               else
+                  This.Max := This.Current - 1;
+               end if;
 
                if This.Max < This.Min then
                   This.Current := This.Min;
                   return False;
                end if;
 
-               This.Current := This.Min + (This.Max - This.Min) / 2;
+               This.Current := Safe_Midpoint (This.Min, This.Max);
                return True;
             end if;
          end Complicate;
