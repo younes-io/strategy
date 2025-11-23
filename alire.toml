@@ -12,5 +12,11 @@ tags = ["test", "property", "testing"]
 [[depends-on]]
 gnat = ">=15"
 
-[[test]]
-runner = 'alire'
+
+[[actions]]
+type = "test"
+command = ["gprbuild", "-p", "-P", "tests/strategy_tests.gpr"]
+
+[[actions]]
+type = "test"
+command = ["sh", "-c", "for f in tests/bin/strategy_tests-*; do $f; done"]
