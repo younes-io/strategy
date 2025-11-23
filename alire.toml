@@ -19,4 +19,4 @@ command = ["gprbuild", "-p", "-P", "tests/strategy_tests.gpr"]
 
 [[actions]]
 type = "test"
-command = ["sh", "-c", "for f in tests/bin/strategy_tests-*; do $f; done"]
+command = ["sh", "-c", "for f in tests/bin/strategy_tests-*; do if [ -x \"$f\" ]; then \"$f\"; fi; done"]
